@@ -17,9 +17,37 @@
 
 let usuario = prompt("Bienvenido! Por favor, ingrese su nombre de usuario a continuación");
 
+while (usuario == "" || usuario == null) {
+    usuario = prompt("El usuario no puede quedar vacio. Por favor, ingrese un nombre");
+}
+
 alert("Bienvenido a nuestra tienda, " + usuario + "!");
 
 let producto = parseInt(prompt("Querido " + usuario + ", ¿Qué tipo de producto le gustaría comprar? \n 1) Tarjeta gráfica GTX 1050 \n 2) CPU i5 12400 \n 3) PS5 \n 4) Peluche spider-man \n ELEGIR CON NÚMERO DEL 1 AL 4"));
+
+function validarProducto(flag) {
+
+    switch (flag) {
+        case true:
+            let direccion = prompt("Usted ha confirmado la compra. Por favor, ingrese a continuación su dirección para poder enviar el pedido:");
+            if (direccion == null) {
+                alert("Se ha cancelado el pedido.");
+                break;
+            }
+            let envio = confirm("Su artículo será enviado a: " + direccion);
+            if (envio == false) {
+                alert("Se ha cancelado el pedido.");
+                break;
+            }
+            alert("Se ha confirmado el envío de su artículo. Muchas gracias por su compra!");
+            break;
+
+        default:
+            alert("Muchas gracias por su visita.")
+            break;
+    }
+}
+
 
 function confirmarProducto(producto) {
 
@@ -31,81 +59,26 @@ function confirmarProducto(producto) {
     switch (producto) {
         case 1:
             let flag = confirm("Usted eligió para comprar una tarjeta gráfica GTX 1050, su precio es de $120.000. Quiere confirmar?");
-            if (flag) {
-                let direccion = prompt("Usted ha confirmado la compra. Por favor, ingrese a continuación su dirección para poder enviar el pedido:");
-                if (direccion == null) {
-                    alert("Se ha cancelado el pedido.");
-                    break;
-                }
-                let envio = confirm("Su artículo será enviado a: " + direccion);
-                if (envio == false) {
-                    alert("Se ha cancelado el pedido.");
-                    break;
-                }
-                alert("Se ha confirmado el envío de su artículo. Muchas gracias por su compra!");
-            } else {
-                alert("Muchas gracias por su visita.");
-            }
+            validarProducto(flag);
             break;
 
         case 2:
             let flag2 = confirm("Usted eligió para comprar un CPU i5 12400, su precio es de $150.000. Quiere confirmar?");
-            if (flag2) {
-                let direccion = prompt("Usted ha confirmado la compra. Por favor, ingrese a continuación su dirección para poder enviar el pedido:");
-                if (direccion == null) {
-                    alert("Se ha cancelado el pedido.");
-                    break;
-                }
-                let envio = confirm("Su artículo será enviado a: " + direccion);
-                if (envio == false) {
-                    alert("Se ha cancelado el pedido.");
-                    break;
-                }
-                alert("Se ha confirmado el envío de su artículo. Muchas gracias por su compra!");
-            } else {
-                alert("Muchas gracias por su visita.");
-            }
+            validarProducto(flag2);
             break;
 
         case 3:
             let flag3 = confirm("Usted eligió para comprar una PS5, su precio es de $600.000. Quiere confirmar?");
-            if (flag3) {
-                let direccion = prompt("Usted ha confirmado la compra. Por favor, ingrese a continuación su dirección para poder enviar el pedido:");
-                if (direccion == null) {
-                    alert("Se ha cancelado el pedido.");
-                    break;
-                }
-                let envio = confirm("Su artículo será enviado a: " + direccion);
-                if (envio == false) {
-                    alert("Se ha cancelado el pedido.");
-                    break;
-                }
-                alert("Se ha confirmado el envío de su artículo. Muchas gracias por su compra!");
-            } else {
-                alert("Muchas gracias por su visita.");
-            }
+            validarProducto(flag3);
             break;
 
         case 4:
             let flag4 = confirm("Usted eligió para comprar un peluche de spider-man, su precio es de $5000. Quiere confirmar?");
-            if (flag4) {
-                let direccion = prompt("Usted ha confirmado la compra. Por favor, ingrese a continuación su dirección para poder enviar el pedido:");
-                if (direccion == null) {
-                    alert("Se ha cancelado el pedido.");
-                    break;
-                }
-                let envio = confirm("Su artículo será enviado a: " + direccion);
-                if (envio == false) {
-                    alert("Se ha cancelado el pedido.");
-                    break;
-                }
-                alert("Se ha confirmado el envío de su artículo. Muchas gracias por su compra!");
-            } else {
-                alert("Muchas gracias por su visita.");
-            }
+            validarProducto(flag4);
             break;
-        
+
         default:
+            alert("Muchas gracias por su visita.");
             break;
     }
 }

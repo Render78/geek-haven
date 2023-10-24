@@ -80,7 +80,3 @@ if (isNaN(eleccionCompra)) {
         }
     } while (!productoSeleccionado);
 }
-
-
-
-

@@ -1,0 +1,31 @@
+:root {
+    --dark: #022B3A;
+    --semi-dark: #1F7A8C;
+    --soft: #BFDBF7;
+    --soft2: #E1E5F2;
+    --white: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--soft);
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--soft2);
+    color: var(--dark);
+}
+
+
+/* CLASES */

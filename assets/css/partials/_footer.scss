@@ -1,0 +1,23 @@
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    padding: 1rem;
+    background-color: $teal;
+
+    .footer-info {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+
+        .info-container {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+}

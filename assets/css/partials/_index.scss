@@ -1,0 +1,41 @@
+#index-title {
+    text-align: center;
+}
+
+#carousel {
+    width: 1280px;
+    height: auto;
+    margin: 50px auto 0;
+    overflow: hidden;
+    
+
+    #carousel-list {
+        display: flex;
+        padding: 0;
+        width: 400%;
+        animation: slide 16s infinite linear;
+        animation-direction: alternate;
+
+        .carousel-list-items {
+            list-style: none;
+            width: 100%;
+
+            .carousel-img {
+                width: 1280px;
+                height: 720px;
+            }
+        }
+    }
+    @keyframes slide {
+
+        0% {
+            margin-left: 0%;
+          }
+          25%, 100% {
+            margin-left: -300%; /* Cambié los porcentajes y la dirección */
+          }
+    }
+}
+
+
+

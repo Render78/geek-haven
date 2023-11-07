@@ -1,0 +1,45 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: $teal;
+
+    .title {
+        margin-left: 1rem;
+    }
+
+    .nav-bar {
+        flex: 1;
+        text-align: center;
+        margin-right: 5rem;
+
+        .nav-list {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            list-style: none;
+        }
+    }
+
+    #lblToggle,
+    #lblCart {
+        font-size: 2em;
+        cursor: pointer;
+        transition: 300ms;
+
+        &:hover {
+            color: $white;
+        }
+    }
+
+    #toggle,
+    #cart {
+        display: none;
+    }
+
+    #lblCart {
+        margin-left: 20px;
+    }
+}

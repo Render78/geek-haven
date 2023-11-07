@@ -3,3 +3,13 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    transition: all 1.5s ease;
+}
+
+.dark {
+    background-color: $gunmetal;
+    color: $lavender;
+    transition: all 1.5s ease;
+}

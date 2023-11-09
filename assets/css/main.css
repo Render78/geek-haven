@@ -58,34 +58,8 @@ body {
   text-align: center;
 }
 
-#carousel {
-  width: 1280px;
-  height: auto;
-  margin: 50px auto 0;
-  overflow: hidden;
-}
-#carousel #carousel-list {
-  display: flex;
-  padding: 0;
-  width: 400%;
-  animation: slide 16s infinite linear;
-  animation-direction: alternate;
-}
-#carousel #carousel-list .carousel-list-items {
-  list-style: none;
-  width: 100%;
-}
-#carousel #carousel-list .carousel-list-items .carousel-img {
-  width: 1280px;
-  height: 720px;
-}
-@keyframes slide {
-  0% {
-    margin-left: 0%;
-  }
-  25%, 100% {
-    margin-left: -300%;
-  }
+#carouselExample {
+  width: 800px;
 }
 
 /* Estilos de la tarjeta del producto */

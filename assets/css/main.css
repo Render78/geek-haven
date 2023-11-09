@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -36,6 +37,9 @@ body {
   justify-content: space-evenly;
   list-style: none;
 }
+.header .nav-bar .nav-list .list-item a {
+  color: #BFDBF7;
+}
 .header #lblToggle,
 .header #lblCart {
   font-size: 2em;
@@ -52,6 +56,16 @@ body {
 }
 .header #lblCart {
   margin-left: 20px;
+}
+.header .cart-popup {
+  display: none;
+  position: absolute;
+  top: 30px; /* Ajusta la posición vertical */
+  right: 0; /* Ajusta la posición horizontal */
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 1;
 }
 
 #index-title {

@@ -20,6 +20,12 @@
             flex-direction: row;
             justify-content: space-evenly;
             list-style: none;
+
+            .list-item {
+                a {
+                    color: $columbiaBlue;
+                }
+            }
         }
     }
 
@@ -42,4 +48,15 @@
     #lblCart {
         margin-left: 20px;
     }
+
+    .cart-popup {
+        display: none;
+        position: absolute;
+        top: 30px; /* Ajusta la posición vertical */
+        right: 0; /* Ajusta la posición horizontal */
+        background: #fff;
+        border: 1px solid #ccc;
+        padding: 10px;
+        z-index: 1;
+      }
 }

@@ -1,4 +1,3 @@
-
 let toggle = document.getElementById('toggle');
 let lblToggle = document.getElementById('lblToggle');
 let modeIcon = document.getElementById('modeIcon');

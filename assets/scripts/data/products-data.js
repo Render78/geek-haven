@@ -65,7 +65,7 @@ const products = [
         "description": "Procesador AMD Ryzen 5 de 6 núcleos y 12 hilos para alto rendimiento en juegos y aplicaciones",
         "category": "hardware",
         "type": "procesador",
-        "image": "https://example.com/amd-ryzen-5600x.jpg"
+        "image": "https://elit-prod.s3.amazonaws.com/p/10314/i/QEm1T_l.webp"
     },
     {
         "id": 8,
@@ -74,8 +74,8 @@ const products = [
         "price": 499,
         "description": "Tarjeta gráfica AMD Radeon RX 6700 XT para gaming de alta calidad y rendimiento",
         "category": "hardware",
-        "type": "tarjeta gráfica",
-        "image": "https://example.com/amd-radeon-rx-6700xt.jpg"
+        "type": "gpu",
+        "image": "https://www.precio-calidad.com.ar/wp-content/uploads/2021/09/TUF-RX6700XT-O12G-GAMING-1.jpg"
     },
     {
         "id": 9,
@@ -85,7 +85,7 @@ const products = [
         "description": "Procesador AMD Ryzen 7 de 8 núcleos y 16 hilos para multitarea intensiva y rendimiento gaming avanzado",
         "category": "hardware",
         "type": "procesador",
-        "image": "https://example.com/amd-ryzen-5800x.jpg"
+        "image": "https://www.xt-pc.com.ar/img/productos/1/CPU570.jpg"
     },
     {
         "id": 10,
@@ -95,7 +95,7 @@ const products = [
         "description": "Procesador AMD Ryzen 9 de 12 núcleos y 24 hilos para potencia de procesamiento extremo",
         "category": "hardware",
         "type": "procesador",
-        "image": "https://example.com/amd-ryzen-5900x.jpg"
+        "image": "https://http2.mlstatic.com/D_NQ_NP_657275-MLA31853066320_082019-O.webp"
     },
     {
         "id": 11,
@@ -105,8 +105,38 @@ const products = [
         "description": "Tarjeta gráfica AMD Radeon RX 6800 para gaming de alta gama y renderización de gráficos",
         "category": "hardware",
         "type": "tarjeta gráfica",
-        "image": "https://example.com/amd-radeon-rx-6800.jpg"
-    }
+        "image": "https://front.dev.malditohard.com.ar/img/migration/PLACA-DE-VIDEO-AMD-RX-6800-XT-POWERCOLOR-RED-DRAGON.webp"
+    },
+    {
+        "id": 12,
+        "title": "Auriculares Bluetooth con cancelación de ruido",
+        "sale": true,
+        "price": 129,
+        "description": "Auriculares Bluetooth con tecnología de cancelación de ruido para una experiencia auditiva inmersiva",
+        "category": "audio",
+        "type": "auriculares",
+        "image": "https://http2.mlstatic.com/D_NQ_NP_818342-MLU72608036825_112023-O.webp"
+      },
+      {
+        "id": 13,
+        "title": "Base refrigerante para portátil",
+        "sale": false,
+        "price": 35,
+        "description": "Base refrigerante con ventiladores para mantener el portátil fresco durante largas sesiones de trabajo o juego",
+        "category": "periféricos",
+        "type": "refrigeración",
+        "image": "https://http2.mlstatic.com/D_NQ_NP_948097-MLA50560742180_072022-O.webp"
+      },
+      {
+        "id": 14,
+        "title": "Mochila para portátil resistente al agua",
+        "sale": true,
+        "price": 55,
+        "description": "Mochila para portátil con compartimentos acolchados y resistencia al agua para proteger tus dispositivos",
+        "category": "accesorios",
+        "type": "mochila",
+        "image": "https://topesdegama.com/app/uploads-topesdegama.com/2022/07/Mochila-portatiles-Lenovo-Casual-B210.png?x=480&quality=40"
+      }
 ]
 
 export { products };

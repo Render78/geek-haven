@@ -131,6 +131,46 @@ body {
   background-color: #2980B9;
 }
 
+.container {
+  width: 60%;
+  padding: 45px;
+  border-radius: 0;
+}
+
+.row {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.col-md-7 {
+  padding: 20px;
+}
+
+.col-md-5 {
+  background: #1089ff;
+  padding: 20px;
+  color: white;
+}
+
+.form-control {
+  height: 52px;
+  background: #fff;
+  color: #000;
+  font-size: 14px;
+  border-radius: 2px;
+  box-shadow: none !important;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.bi {
+  font-size: 20px;
+}
+
+.d-flex p {
+  font-size: 18px;
+  padding-left: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .footer {
   display: flex;
   flex-direction: row;

@@ -113,21 +113,21 @@ const products = [
         "sale": true,
         "price": 129,
         "description": "Auriculares Bluetooth con tecnología de cancelación de ruido para una experiencia auditiva inmersiva",
-        "category": "audio",
+        "category": "accesorios",
         "type": "auriculares",
         "image": "https://http2.mlstatic.com/D_NQ_NP_818342-MLU72608036825_112023-O.webp"
-      },
-      {
+    },
+    {
         "id": 13,
         "title": "Base refrigerante para portátil",
         "sale": false,
         "price": 35,
         "description": "Base refrigerante con ventiladores para mantener el portátil fresco durante largas sesiones de trabajo o juego",
-        "category": "periféricos",
+        "category": "accesorios",
         "type": "refrigeración",
         "image": "https://http2.mlstatic.com/D_NQ_NP_948097-MLA50560742180_072022-O.webp"
-      },
-      {
+    },
+    {
         "id": 14,
         "title": "Mochila para portátil resistente al agua",
         "sale": true,
@@ -136,7 +136,7 @@ const products = [
         "category": "accesorios",
         "type": "mochila",
         "image": "https://topesdegama.com/app/uploads-topesdegama.com/2022/07/Mochila-portatiles-Lenovo-Casual-B210.png?x=480&quality=40"
-      }
+    }
 ]
 
 export { products };

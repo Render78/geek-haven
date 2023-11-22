@@ -31,10 +31,26 @@ document.getElementById('filterSelect').addEventListener('change', (event) => {
     if (filterValue === '1') {
         filteredProducts.sort((a, b) => a.title.localeCompare(b.title));
     } else if (filterValue === '2') {
-        filteredProducts = products.filter(product => product.sale); // Filtrar por oferta
+        filteredProducts.sort((a, b) => b.title.localeCompare(a.title));
     } else if (filterValue === '3') {
+        filteredProducts = products.filter(product => product.sale);
+    } else if (filterValue === '4') {
         filteredProducts.sort((a, b) => a.price - b.price);
     }
 
     renderProducts(filteredProducts);
+});
+
+document.getElementById('productSelect').addEventListener('change', (event) => {
+    const productFilterValue = event.target.value;
+
+    let filteredByProductType = [...products];
+
+    if (productFilterValue === '1') {
+        filteredByProductType = products.filter(product => product.category === 'hardware');
+    } else if (productFilterValue === '2') {
+        filteredByProductType = products.filter(product => product.category === 'accesorios');
+    }
+
+    renderProducts(filteredByProductType);
 });

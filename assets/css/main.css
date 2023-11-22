@@ -76,7 +76,17 @@ body {
   width: 800px;
 }
 
-/* Estilos de la tarjeta del producto */
+#lblSelect,
+#lblProducts {
+  margin-left: 1rem;
+}
+
+#filterSelect,
+#productSelect {
+  width: 250px;
+  margin-left: 1rem;
+}
+
 #productList {
   display: flex;
   flex-wrap: wrap;

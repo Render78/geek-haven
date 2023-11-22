@@ -31,13 +31,22 @@
         <input type="checkbox" id="toggle">
         <label for="carrito" id="lblCart"><i class="bi bi-cart4"></i></label>
         <input type="checkbox" id="cart">
-        <div class="cart-popup" id="cartPopup">
-            dsadsadas
-        </div>
     </header>
     <main>
         <h1>Productos</h1>
-        <button id="btnOrdenar" class="btn btn-success ms-2">Ordenar productos A-Z</button>
+        <label for="filterSelect" class="form-label" id="lblSelect">Filtrar por:</label>
+        <select class="form-select" id="filterSelect">
+            <option selected>Elige un filtro</option>
+            <option value="1">Ordenar alfabéticamente</option>
+            <option value="2">Ofertas</option>
+            <option value="3">Precio</option>
+        </select>
+        <label for="productSelect" id="lblProducts">Categoría de producto:</label>
+        <select id="productSelect" class="form-select">
+            <option selected>Elige categoría de productos</option>
+            <option value="1">Electrónica</option>
+            <option value="2">Accesorios</option>
+        </select>
         <section id="productList"></section>
     </main>
     <footer class="footer">

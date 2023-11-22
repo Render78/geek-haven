@@ -14,6 +14,7 @@ function renderProducts(productArray) {
             <h3>${product.title}</h3>
             <p>Precio: $${product.price}</p>
             <p>${product.description}</p>
+            ${product.sale ? '<p>¡En oferta!</p>' : ''}
             <button>Añadir al carrito</button>
         `;
 
@@ -25,18 +26,15 @@ renderProducts(products);
 document.getElementById('filterSelect').addEventListener('change', (event) => {
     const filterValue = event.target.value;
 
-    let sortedProducts = [...products];
+    let filteredProducts = [...products];
 
     if (filterValue === '1') {
-        sortedProducts.sort((a, b) => a.title.localeCompare(b.title));
+        filteredProducts.sort((a, b) => a.title.localeCompare(b.title));
     } else if (filterValue === '2') {
-        // Lógica para otro tipo de filtro (por ejemplo, ofertas) si es necesario
-        // sortedProducts = ...;
+        filteredProducts = products.filter(product => product.sale); // Filtrar por oferta
     } else if (filterValue === '3') {
-        sortedProducts.sort((a, b) => a.price - b.price);
-    } else if (filterValue === '4') {
-        sortedProducts.sort((a, b) => b.price - a.price);
+        filteredProducts.sort((a, b) => a.price - b.price);
     }
 
-    renderProducts(sortedProducts);
+    renderProducts(filteredProducts);
 });

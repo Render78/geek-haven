@@ -30,6 +30,9 @@ function actualizarCarrito() {
             <button class="btn btn-sm btn-primary btn-decrement">
                 <i class="bi bi-dash-lg"></i>
             </button>
+            <button class="btn btn-sm btn-danger btn-remove">
+                <i class="bi bi-trash"></i>
+            </button>
         `;
         listaCarrito.appendChild(li);
 
@@ -43,6 +46,15 @@ function actualizarCarrito() {
         btnDecrement.addEventListener('click', () => {
             if (producto.cantidad > 1) {
                 producto.cantidad--;
+                actualizarCarrito();
+            }
+        });
+
+        const btnRemove = li.querySelector('.btn-remove');
+        btnRemove.addEventListener('click', () => {
+            const index = carrito.indexOf(producto);
+            if (index !== -1) {
+                carrito.splice(index, 1);
                 actualizarCarrito();
             }
         });

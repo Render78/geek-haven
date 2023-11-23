@@ -26,11 +26,8 @@ function renderProducts(productArray) {
             agregarAlCarrito(product);
         });
     });
-
-    addToCartBtn.addEventListener('click', () => {
-        agregarAlCarrito(product);
-    });
 }
+
 renderProducts(products);
 
 document.getElementById('filterSelect').addEventListener('change', (event) => {

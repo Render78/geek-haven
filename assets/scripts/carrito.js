@@ -1,8 +1,14 @@
 const carrito = [];
 
 function agregarAlCarrito(producto) {
-    carrito.push(producto);
-    actualizarCarrito();
+    const productoExistente = carrito.find(item => item.id === producto.id);
+
+    if (productoExistente) {
+        alert('El producto ya está en el carrito.');
+    } else {
+        carrito.push(producto);
+        actualizarCarrito();
+    }
 }
 
 function actualizarCarrito() {

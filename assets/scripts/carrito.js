@@ -17,7 +17,11 @@ function actualizarCarrito() {
 
     carrito.forEach(producto => {
         const li = document.createElement('li');
-        li.textContent = producto.title;
+        li.innerHTML = `
+            <strong>${producto.title}</strong>
+            <p>Precio: $${producto.price}</p>
+            <p>Categoría: ${producto.category}</p>
+        `;
         listaCarrito.appendChild(li);
     });
 }

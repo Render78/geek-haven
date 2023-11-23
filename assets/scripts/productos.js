@@ -1,4 +1,5 @@
 import { products } from "./data/products-data.js";
+import { agregarAlCarrito, actualizarCarrito } from "./carrito.js";
 
 const productListDiv = document.getElementById('productList');
 
@@ -15,10 +16,20 @@ function renderProducts(productArray) {
             <p>Precio: $${product.price}</p>
             <p>${product.description}</p>
             ${product.sale ? '<p>¡En oferta!</p>' : ''}
-            <button>Añadir al carrito</button>
+            <button class="add-to-cart-btn">Añadir al carrito</button>
         `;
 
         productListDiv.appendChild(productDiv);
+
+        // Agregar evento al botón "Añadir al carrito"
+        const addToCartBtn = productDiv.querySelector('.add-to-cart-btn');
+        addToCartBtn.addEventListener('click', () => {
+            agregarAlCarrito(product);
+        });
+    });
+
+    addToCartBtn.addEventListener('click', () => {
+        agregarAlCarrito(product);
     });
 }
 renderProducts(products);

@@ -24,6 +24,20 @@ function actualizarCarrito() {
         `;
         listaCarrito.appendChild(li);
     });
+
+    const btnEliminarCarrito = document.createElement('button');
+    btnEliminarCarrito.textContent = 'Vaciar carrito';
+
+    if (carrito.length > 0) {
+        btnEliminarCarrito.addEventListener('click', () => {
+            carrito.length = 0;
+            actualizarCarrito();
+        });
+    } else {
+        btnEliminarCarrito.style.display = 'none';
+    }
+
+    listaCarrito.appendChild(btnEliminarCarrito);
 }
 
 export { agregarAlCarrito, actualizarCarrito };

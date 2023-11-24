@@ -62,6 +62,7 @@ function actualizarCarrito() {
 
     const btnEliminarCarrito = document.createElement('button');
     btnEliminarCarrito.textContent = 'Vaciar carrito';
+    btnEliminarCarrito.classList.add('btn', 'btn-danger', 'mt-2');
 
     if (carrito.length > 0) {
         btnEliminarCarrito.addEventListener('click', () => {

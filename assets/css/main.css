@@ -70,10 +70,27 @@ body {
 
 #index-title {
   text-align: center;
+  margin-block: 2rem;
 }
 
 #carouselExample {
   width: 800px;
+}
+
+#sub-title-index {
+  text-align: center;
+  margin-block: 2rem;
+}
+
+#productsOnSale {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1rem;
+}
+#productsOnSale .card {
+  width: 350px;
 }
 
 #lblSelect,

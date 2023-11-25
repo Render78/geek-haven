@@ -116,7 +116,28 @@ function mostrarProductosCarrito() {
     });
 }
 
+function mostrarProductosEnOferta() {
+    const listaCarrito = document.getElementById('listaCarrito');
+    listaCarrito.innerHTML = '';
+
+    let productosEnOferta = JSON.parse(localStorage.getItem('productosEnOferta')) || [];
+
+    productosEnOferta.forEach(producto => {
+        const li = document.createElement('li');
+        const totalProducto = producto.price * producto.cantidad;
+        li.innerHTML = `
+            <strong>${producto.title}</strong>
+            <p>Precio: $${producto.price}</p>
+            <p>Cantidad: ${producto.cantidad}</p>
+            <p>Total: $${totalProducto}</p>
+            <p>Categoría: ${producto.category}</p>
+        `;
+        listaCarrito.appendChild(li);
+    });
+}
+
 mostrarProductosCarrito();
 actualizarCarrito();
+mostrarProductosEnOferta();
 
 export { agregarAlCarrito, actualizarCarrito };

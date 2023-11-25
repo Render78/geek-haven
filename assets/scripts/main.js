@@ -18,13 +18,32 @@ function renderProductsOnSale(productArray) {
                     <p class="card-text">Precio: $${product.price}</p>
                     <p class="card-text">${product.description}</p>
                     <p class="card-text"><small class="text-muted">¡En oferta!</small></p>
-                    <button class="btn btn-primary">Añadir al carrito</button>
+                    <button class="btn btn-primary btn-add-to-cart" data-product='${JSON.stringify(product)}'>Añadir al carrito</button>
                 </div>
             </div>
         `;
 
         productsOnSaleDiv.appendChild(cardDiv);
+
+        // Agregar evento al botón "Añadir al carrito"
+        const addToCartBtn = cardDiv.querySelector('.btn-add-to-cart');
+        addToCartBtn.addEventListener('click', () => {
+            const productData = JSON.parse(addToCartBtn.getAttribute('data-product'));
+            agregarAlCarritoDesdeIndex(productData);
+        });
     });
+}
+
+function agregarAlCarritoDesdeIndex(producto) {
+    let productosEnOferta = JSON.parse(localStorage.getItem('productosEnOferta')) || [];
+    const productoExistente = productosEnOferta.find(item => item.id === producto.id);
+
+    if (productoExistente) {
+        alert('El producto ya está en el carrito.');
+    } else {
+        productosEnOferta.push({ ...producto, cantidad: 1 });
+        localStorage.setItem('productosEnOferta', JSON.stringify(productosEnOferta));
+    }
 }
 
 renderProductsOnSale(products);

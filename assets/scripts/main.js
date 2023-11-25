@@ -44,15 +44,17 @@ async function fetchProductsOnSale() {
 fetchProductsOnSale();
 
 function agregarAlCarritoDesdeIndex(producto) {
-    let productosEnOferta = JSON.parse(localStorage.getItem('productosEnOferta')) || [];
-    const productoExistente = productosEnOferta.find(item => item.id === producto.id);
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    const productoExistente = carrito.find(item => item.id === producto.id);
 
     if (productoExistente) {
         alert('El producto ya está en el carrito.');
     } else {
-        productosEnOferta.push({ ...producto, cantidad: 1 });
-        localStorage.setItem('productosEnOferta', JSON.stringify(productosEnOferta));
+        carrito.push({ ...producto, cantidad: 1 });
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+        alert('Producto agregado al carrito');
     }
 }
+
 
 renderProductsOnSale(products);

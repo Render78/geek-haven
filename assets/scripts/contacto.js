@@ -1,7 +1,7 @@
 document.getElementById('submitButton').addEventListener('click', function(event) {
-    event.preventDefault();
+    event.preventDefault(); // Evita que el formulario se envíe automáticamente
 
-    
+    // Obtiene los valores de los campos
     const name = document.getElementById('input-name').value;
     const email = document.getElementById('input-email').value;
     const tel = document.getElementById('input-tel').value;
@@ -16,19 +16,32 @@ document.getElementById('submitButton').addEventListener('click', function(event
 
     // Validación del correo electrónico
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (name.length < 5 || !emailRegex.test(email) || (tel.length > 0 && tel.length < 5) || message.length < 10) {
-        // Muestra una alerta de error indicando que se deben completar los datos
-        Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: 'Por favor, complete correctamente todos los campos.'
-        });
+    if (!emailRegex.test(email)) {
+        document.getElementById('emailError').textContent = 'Ingrese un correo electrónico válido';
     } else {
-        // Muestra una alerta de éxito indicando que los datos son válidos
+        document.getElementById('emailError').textContent = '';
+    }
+
+    // Validación del número telefónico (opcional)
+    if (tel.length > 0 && tel.length < 5) {
+        document.getElementById('telError').textContent = 'El número telefónico debe tener al menos 5 caracteres';
+    } else {
+        document.getElementById('telError').textContent = '';
+    }
+
+    // Validación del mensaje
+    if (message.length < 10) {
+        document.getElementById('textareaError').textContent = 'El mensaje debe tener al menos 10 caracteres';
+    } else {
+        document.getElementById('textareaError').textContent = '';
+    }
+
+    // Si todos los campos son válidos, puedes enviar el formulario o realizar alguna acción adicional
+    if (name.length >= 5 && emailRegex.test(email) && (tel.length === 0 || tel.length >= 5) && message.length >= 10) {
         Swal.fire({
-            icon: 'success',
-            title: 'Éxito',
-            text: 'Los datos son válidos. ¡Formulario enviado correctamente!'
-        });
+            title: "Proceso exitoso!",
+            text: "Los datos se han enviado correctamente",
+            icon: "success"
+          });
     }
 });

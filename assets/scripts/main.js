@@ -25,7 +25,6 @@ function renderProductsOnSale(productArray) {
 
         productsOnSaleDiv.appendChild(cardDiv);
 
-        // Agregar evento al botón "Añadir al carrito"
         const addToCartBtn = cardDiv.querySelector('.btn-add-to-cart');
         addToCartBtn.addEventListener('click', () => {
             const productData = JSON.parse(addToCartBtn.getAttribute('data-product'));

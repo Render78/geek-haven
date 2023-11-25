@@ -33,7 +33,7 @@
         "title": "Logitech G502 Hero",
         "price": 80,
         "description": "Mouse gaming de gama alta con 12 botones",
-        "category": "periferico",
+        "category": "perifericos",
         "type": "mouse",
         "image": "https://app.contabilium.com/files/explorer/16277/Productos-Servicios/concepto-5510244.jpg"
     },
@@ -43,7 +43,7 @@
         "sale": true,
         "price": 90,
         "description": "Headset de gama alta con sonido envolvente DTS Headphone X 2.0",
-        "category": "periferico",
+        "category": "perifericos",
         "type": "auricular",
         "image": "https://matictecno.com.ar/wp-content/uploads/2022/01/logitech-g935-wireless-7-1-surround-981-000742.png"
     },
@@ -53,7 +53,7 @@
         "sale": true,
         "price": 32,
         "description": "Teclado mecánico con switches outemu blue",
-        "category": "periferico",
+        "category": "perifericos",
         "type": "teclado",
         "image": "https://wallnet.com.ar/wp-content/uploads/2023/09/Teclados-Redragon-Kumara-Black-blue-switch-spanish0-600x600.jpg"
     },
@@ -113,7 +113,7 @@
         "sale": true,
         "price": 129,
         "description": "Auriculares Bluetooth con tecnología de cancelación de ruido para una experiencia auditiva inmersiva",
-        "category": "accesorios",
+        "category": "perifericos",
         "type": "auriculares",
         "image": "https://http2.mlstatic.com/D_NQ_NP_818342-MLU72608036825_112023-O.webp"
     },

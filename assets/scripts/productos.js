@@ -74,8 +74,10 @@ async function initializeProducts() {
                 filteredByProductType = products.filter(product => product.category === 'hardware');
                 break;
             case '2':
-                filteredByProductType = products.filter(product => product.category === 'accesorios');
+                filteredByProductType = products.filter(product => product.category === 'perifericos');
                 break;
+            case '3':
+                filteredByProductType = products.filter(product => product.category === 'accesorios')
             default:
                 break;
         }

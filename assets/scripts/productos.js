@@ -1,6 +1,16 @@
-import { products } from "./data/products-data.js";
-
 const productListDiv = document.getElementById('productList');
+
+async function fetchProducts() {
+    try {
+        const response = await fetch('../assets/scripts/data/productos.json');
+        const products = await response.json();
+        return products;
+    } catch (error) {
+        console.error('Error fetching products:', error);
+    }
+}
+
+fetchProducts().then(products => { console.log(products); }); //Prueba de fetch de productos
 
 function renderProducts(productArray) {
     productListDiv.innerHTML = '';
@@ -27,36 +37,39 @@ function renderProducts(productArray) {
     });
 }
 
-renderProducts(products);
+async function initializeProducts() {
+    const products = await fetchProducts();
+    renderProducts(products);
 
-document.getElementById('filterSelect').addEventListener('change', (event) => {
-    const filterValue = event.target.value;
+    document.getElementById('filterSelect').addEventListener('change', (event) => {
+        const filterValue = event.target.value;
+        let filteredProducts = [...products];
 
-    let filteredProducts = [...products];
+        if (filterValue === '1') {
+            filteredProducts.sort((a, b) => a.title.localeCompare(b.title));
+        } else if (filterValue === '2') {
+            filteredProducts.sort((a, b) => b.title.localeCompare(a.title));
+        } else if (filterValue === '3') {
+            filteredProducts = products.filter(product => product.sale);
+        } else if (filterValue === '4') {
+            filteredProducts.sort((a, b) => a.price - b.price);
+        }
 
-    if (filterValue === '1') {
-        filteredProducts.sort((a, b) => a.title.localeCompare(b.title));
-    } else if (filterValue === '2') {
-        filteredProducts.sort((a, b) => b.title.localeCompare(a.title));
-    } else if (filterValue === '3') {
-        filteredProducts = products.filter(product => product.sale);
-    } else if (filterValue === '4') {
-        filteredProducts.sort((a, b) => a.price - b.price);
-    }
+        renderProducts(filteredProducts);
+    });
 
-    renderProducts(filteredProducts);
-});
+    document.getElementById('productSelect').addEventListener('change', (event) => {
+        const productFilterValue = event.target.value;
+        let filteredByProductType = [...products];
 
-document.getElementById('productSelect').addEventListener('change', (event) => {
-    const productFilterValue = event.target.value;
+        if (productFilterValue === '1') {
+            filteredByProductType = products.filter(product => product.category === 'hardware');
+        } else if (productFilterValue === '2') {
+            filteredByProductType = products.filter(product => product.category === 'accesorios');
+        }
 
-    let filteredByProductType = [...products];
+        renderProducts(filteredByProductType);
+    });
+}
 
-    if (productFilterValue === '1') {
-        filteredByProductType = products.filter(product => product.category === 'hardware');
-    } else if (productFilterValue === '2') {
-        filteredByProductType = products.filter(product => product.category === 'accesorios');
-    }
-
-    renderProducts(filteredByProductType);
-});
+initializeProducts();

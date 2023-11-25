@@ -6,7 +6,7 @@ async function fetchProducts() {
         const products = await response.json();
         return products;
     } catch (error) {
-        console.error('Error fetching products:', error);
+        console.error(error);
     }
 }
 

@@ -45,14 +45,21 @@ async function initializeProducts() {
         const filterValue = event.target.value;
         let filteredProducts = [...products];
 
-        if (filterValue === '1') {
-            filteredProducts.sort((a, b) => a.title.localeCompare(b.title));
-        } else if (filterValue === '2') {
-            filteredProducts.sort((a, b) => b.title.localeCompare(a.title));
-        } else if (filterValue === '3') {
-            filteredProducts = products.filter(product => product.sale);
-        } else if (filterValue === '4') {
-            filteredProducts.sort((a, b) => a.price - b.price);
+        switch (filterValue) {
+            case '1':
+                filteredProducts.sort((a, b) => a.title.localeCompare(b.title));
+                break;
+            case '2':
+                filteredProducts.sort((a, b) => b.title.localeCompare(a.title));
+                break;
+            case '3':
+                filteredProducts = products.filter(product => product.sale);
+                break;
+            case '4':
+                filteredProducts.sort((a, b) => a.price - b.price);
+                break;
+            default:
+                break;
         }
 
         renderProducts(filteredProducts);
@@ -62,10 +69,15 @@ async function initializeProducts() {
         const productFilterValue = event.target.value;
         let filteredByProductType = [...products];
 
-        if (productFilterValue === '1') {
-            filteredByProductType = products.filter(product => product.category === 'hardware');
-        } else if (productFilterValue === '2') {
-            filteredByProductType = products.filter(product => product.category === 'accesorios');
+        switch (productFilterValue) {
+            case '1':
+                filteredByProductType = products.filter(product => product.category === 'hardware');
+                break;
+            case '2':
+                filteredByProductType = products.filter(product => product.category === 'accesorios');
+                break;
+            default:
+                break;
         }
 
         renderProducts(filteredByProductType);

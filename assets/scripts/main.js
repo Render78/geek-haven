@@ -48,11 +48,11 @@ function agregarAlCarritoDesdeIndex(producto) {
     const productoExistente = carrito.find(item => item.id === producto.id);
 
     if (productoExistente) {
-        alert('El producto ya está en el carrito.');
+        Swal.fire('El producto ya está en el carrito.', '', 'warning');
     } else {
         carrito.push({ ...producto, cantidad: 1 });
         localStorage.setItem('carrito', JSON.stringify(carrito));
-        alert('Producto agregado al carrito');
+        Swal.fire('Producto agregado al carrito', '', 'success');
     }
 }
 

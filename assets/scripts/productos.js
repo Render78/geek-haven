@@ -85,3 +85,17 @@ async function initializeProducts() {
 }
 
 initializeProducts();
+
+function agregarAlCarrito(producto) {
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+    const productoExistente = carrito.find(item => item.id === producto.id);
+
+    if (productoExistente) {
+        alert('El producto ya está en el carrito.');
+    } else {
+        carrito.push({ ...producto, cantidad: 1 });
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+        alert('Producto agregado al carrito');
+    }
+}

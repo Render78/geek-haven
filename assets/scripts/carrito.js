@@ -1,142 +1,80 @@
-const carrito = [];
+function mostrarCarrito() {
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
-function agregarAlCarrito(producto) {
-    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    const carritoTable = document.createElement('table');
+    carritoTable.classList.add('table');
 
-    const productoExistente = carrito.find(item => item.id === producto.id);
+    carritoTable.innerHTML = `
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Oferta</th>
+                <th>Total</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    `;
 
-    if (productoExistente) {
-        alert('El producto ya está en el carrito.');
-    } else {
-        carrito.push({ ...producto, cantidad: 1 });
-        localStorage.setItem('carrito', JSON.stringify(carrito));
-        actualizarCarrito();
-    }
-}
-
-function actualizarCarrito() {
-    const listaCarrito = document.getElementById('listaCarrito');
-    listaCarrito.innerHTML = '';
-
-    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    const tbody = carritoTable.querySelector('tbody');
 
     carrito.forEach(producto => {
-        const li = document.createElement('li');
         const totalProducto = producto.price * producto.cantidad;
-        li.innerHTML = `
-            <strong>${producto.title}</strong>
-            <p>Precio: $${producto.price}</p>
-            <p>Cantidad: ${producto.cantidad}</p>
-            <p>Total: $${totalProducto}</p>
-            <p>Categoría: ${producto.category}</p>
-            <button class="btn btn-sm btn-primary btn-increment">
-                <i class="bi bi-plus"></i>
-            </button>
-            <button class="btn btn-sm btn-primary btn-decrement">
-                <i class="bi bi-dash-lg"></i>
-            </button>
-            <button class="btn btn-sm btn-danger btn-remove">
-                <i class="bi bi-trash"></i>
-            </button>
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${producto.title}</td>
+            <td>$${producto.price}</td>
+            <td>${producto.cantidad}</td>
+            <td>${producto.sale ? 'Sí' : 'No'}</td>
+            <td class="total">$${totalProducto}</td>
+            <td>
+                <button class="btn btn-primary btn-increment">+</button>
+                <button class="btn btn-primary btn-decrement">-</button>
+                <button class="btn btn-danger btn-remove bi bi-trash"></button>
+            </td>
         `;
-        listaCarrito.appendChild(li);
 
-        const btnIncrement = li.querySelector('.btn-increment');
-        btnIncrement.addEventListener('click', () => {
+        const updateTotal = () => {
+            const totalProducto = producto.price * producto.cantidad;
+            row.querySelector('.total').textContent = `$${totalProducto}`;
+        };
+
+        const updateQuantity = () => {
+            row.querySelector('td:nth-child(3)').textContent = producto.cantidad;
+            updateTotal();
+        };
+
+        row.querySelector('.btn-increment').addEventListener('click', () => {
             producto.cantidad++;
             localStorage.setItem('carrito', JSON.stringify(carrito));
-            actualizarCarrito();
+            updateQuantity();
         });
 
-        const btnDecrement = li.querySelector('.btn-decrement');
-        btnDecrement.addEventListener('click', () => {
+        row.querySelector('.btn-decrement').addEventListener('click', () => {
             if (producto.cantidad > 1) {
                 producto.cantidad--;
                 localStorage.setItem('carrito', JSON.stringify(carrito));
-                actualizarCarrito();
+                updateQuantity();
             }
         });
 
-        const btnRemove = li.querySelector('.btn-remove');
-        btnRemove.addEventListener('click', () => {
+        row.querySelector('.btn-remove').addEventListener('click', () => {
             const index = carrito.indexOf(producto);
             if (index !== -1) {
                 carrito.splice(index, 1);
                 localStorage.setItem('carrito', JSON.stringify(carrito));
-                actualizarCarrito();
+                mostrarCarrito();
             }
         });
+
+        tbody.appendChild(row);
     });
 
-    const btnEliminarCarrito = document.createElement('button');
-    btnEliminarCarrito.textContent = 'Vaciar carrito';
-    btnEliminarCarrito.classList.add('btn', 'btn-danger', 'mt-2');
-
-    if (carrito.length > 0) {
-        btnEliminarCarrito.addEventListener('click', () => {
-            localStorage.removeItem('carrito');
-            actualizarCarrito();
-        });
-    } else {
-        btnEliminarCarrito.style.display = 'none';
-    }
-
-    listaCarrito.appendChild(btnEliminarCarrito);
-
-    const finalizarCompraBtn = document.createElement('button');
-    finalizarCompraBtn.textContent = 'Finalizar Compra';
-    finalizarCompraBtn.classList.add('btn', 'btn-success', 'mt-2');
-    finalizarCompraBtn.addEventListener('click', () => {
-        alert('¡Gracias por su compra!');
-        localStorage.removeItem('carrito');
-        actualizarCarrito();
-    });
-
-    listaCarrito.appendChild(finalizarCompraBtn);
+    const carritoDiv = document.getElementById('carrito');
+    carritoDiv.innerHTML = '';
+    carritoDiv.appendChild(carritoTable);
 }
 
-function mostrarProductosCarrito() {
-    const listaCarrito = document.getElementById('listaCarrito');
-    listaCarrito.innerHTML = '';
-
-    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
-    carrito.forEach(producto => {
-        const li = document.createElement('li');
-        const totalProducto = producto.price * producto.cantidad;
-        li.innerHTML = `
-            <strong>${producto.title}</strong>
-            <p>Precio: $${producto.price}</p>
-            <p>Cantidad: ${producto.cantidad}</p>
-            <p>Total: $${totalProducto}</p>
-            <p>Categoría: ${producto.category}</p>
-        `;
-        listaCarrito.appendChild(li);
-    });
-}
-
-function mostrarProductosEnOferta() {
-    const listaCarrito = document.getElementById('listaCarrito');
-    listaCarrito.innerHTML = '';
-
-    let productosEnOferta = JSON.parse(localStorage.getItem('productosEnOferta')) || [];
-
-    productosEnOferta.forEach(producto => {
-        const li = document.createElement('li');
-        const totalProducto = producto.price * producto.cantidad;
-        li.innerHTML = `
-            <strong>${producto.title}</strong>
-            <p>Precio: $${producto.price}</p>
-            <p>Cantidad: ${producto.cantidad}</p>
-            <p>Total: $${totalProducto}</p>
-            <p>Categoría: ${producto.category}</p>
-        `;
-        listaCarrito.appendChild(li);
-    });
-}
-
-mostrarProductosCarrito();
-actualizarCarrito();
-mostrarProductosEnOferta();
-
-export { agregarAlCarrito, actualizarCarrito };
+mostrarCarrito();

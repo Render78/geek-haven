@@ -1,7 +1,6 @@
 const carrito = [];
 
 function agregarAlCarrito(producto) {
-    // Obtener el carrito desde el almacenamiento local o inicializar un carrito vacío
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
     const productoExistente = carrito.find(item => item.id === producto.id);

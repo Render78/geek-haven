@@ -1,5 +1,4 @@
 import { products } from "./data/products-data.js";
-import { agregarAlCarrito, actualizarCarrito } from "./carrito.js";
 
 const productListDiv = document.getElementById('productList');
 

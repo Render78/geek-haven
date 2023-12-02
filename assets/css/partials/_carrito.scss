@@ -1,0 +1,18 @@
+.dark table {
+    color: $white;
+}
+
+
+.dark table th {
+    background-color: $teal;
+}
+
+
+.dark table tr:nth-child(even) {
+    background-color: #444;
+}
+
+
+.dark table tr:nth-child(odd) {
+    background-color: #555;
+}

@@ -29,8 +29,7 @@
         }
     }
 
-    #lblToggle,
-    #lblCart {
+    #lblToggle {
         font-size: 2em;
         cursor: pointer;
         transition: 300ms;
@@ -40,23 +39,7 @@
         }
     }
 
-    #toggle,
-    #cart {
+    #toggle {
         display: none;
     }
-
-    #lblCart {
-        margin-left: 20px;
-    }
-
-    .cart-popup {
-        display: none;
-        position: absolute;
-        top: 30px; /* Ajusta la posición vertical */
-        right: 0; /* Ajusta la posición horizontal */
-        background: #fff;
-        border: 1px solid #ccc;
-        padding: 10px;
-        z-index: 1;
-      }
 }

@@ -78,7 +78,7 @@ function mostrarCarrito() {
 
     const completarCompraBtn = document.createElement('button');
     completarCompraBtn.textContent = 'Completar Compra';
-    completarCompraBtn.classList.add('btn', 'btn-primary', 'mt-3');
+    completarCompraBtn.classList.add('btn', 'btn-success', 'mt-3', 'ms-3');
     completarCompraBtn.style.display = carrito.length > 0 ? 'block' : 'none';
     completarCompraBtn.addEventListener('click', () => {
         if (carrito.length > 0 && confirm('¿Está seguro de completar la compra?')) {
@@ -91,7 +91,7 @@ function mostrarCarrito() {
 
     const vaciarCarritoBtn = document.createElement('button');
     vaciarCarritoBtn.textContent = 'Vaciar Carrito';
-    vaciarCarritoBtn.classList.add('btn', 'btn-danger', 'mt-3', 'ms-2');
+    vaciarCarritoBtn.classList.add('btn', 'btn-danger', 'mt-3', 'ms-3', 'mb-3');
     vaciarCarritoBtn.style.display = carrito.length > 0 ? 'block' : 'none';
     vaciarCarritoBtn.addEventListener('click', () => {
         if (carrito.length > 0 && confirm('¿Está seguro de vaciar el carrito?')) {

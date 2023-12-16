@@ -36,7 +36,7 @@ document.getElementById('submitButton').addEventListener('click', function(event
         document.getElementById('textareaError').textContent = '';
     }
 
-    // Si todos los campos son válidos, puedes enviar el formulario o realizar alguna acción adicional
+    
     if (name.length >= 5 && emailRegex.test(email) && (tel.length === 0 || tel.length >= 5) && message.length >= 10) {
         Swal.fire({
             title: "Proceso exitoso!",

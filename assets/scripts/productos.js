@@ -10,7 +10,7 @@ async function fetchProducts() {
     }
 }
 
-fetchProducts().then(products => { console.log(products); }); //Prueba de fetch de productos
+fetchProducts().then(products => { console.log(products); });
 
 function renderProducts(productArray) {
     productListDiv.innerHTML = '';

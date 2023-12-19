@@ -55,6 +55,3 @@ function agregarAlCarritoDesdeIndex(producto) {
         Swal.fire('Producto agregado al carrito', '', 'success');
     }
 }
-
-
-renderProductsOnSale(products);

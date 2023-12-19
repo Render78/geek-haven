@@ -33,7 +33,7 @@ function renderProductsOnSale(productArray) {
 
 async function fetchProductsOnSale() {
     try {
-        const response = await fetch('../assets/scripts/data/productos.json');
+        const response = await fetch('./assets/scripts/data/productos.json');
         const products = await response.json();
         renderProductsOnSale(products);
     } catch (error) {
